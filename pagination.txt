@@ -1,0 +1,110 @@
+<?php
+
+//j'inclut la page de connexion avec ma base de donnee dans ma page accueil.
+require("inc_connexion.php");
+
+?>
+<style>
+	#pagination a{
+		border:1px solid black;
+		text-decoration:none;
+		padding:10px;
+		margin:2px;
+		background-color:teal;
+	}
+	/*je met une couleur red a mes boutons de pagination si on les  survols */
+	 #pagination	a:hover 
+	{
+		background-color:red;
+	}
+	#pagination a:active{
+		background-color:orange;
+	} 
+	
+</style>
+<style>
+    tr td{
+        margin-left:45px;
+    }
+</style>
+<div style="margin-top:50px;">
+    <center>
+        <table border="1" celspacing="10" colpadding="10" width=100%>
+            <tr style="background-color:teal"><td>NAME</td><td>PIC</td><td>INFO</td></tr>
+        <?php
+   
+	//je cree une requete qui vas me permettre de recupere le nombre de ligne de ma base de donnees.
+	$req1="SELECT COUNT(*) as id FROM cars ";
+	
+	//resultat dze ma requete via la fonction query.
+	$rst1=$idconnexion->query($req1);
+
+	//recuperation dans un tableau.
+	$tableau=$rst1->fetch();
+	
+	//Je cree une variable qui vas recevoir le nombre total d'enregistrement.
+	$numberOfPage=$tableau[0];
+	echo $numberOfPage;
+
+	//je cree une variable qui contient le nombre d'affichage par page.
+	$per_page=3;
+
+	//une variable qui vas contenir le numero de la page courante.
+	$page=1;
+
+	//je cree une variable qui vas stoke le nombre de button de pagination en fonction du nombre d'affichage que l'on souhaite et du nombre total d'enregistrement.
+	$button_paging=ceil($numberOfPage/$per_page);
+
+	//je verifier que le bouton de pagination est selectionne et je recupere la valeur dans la super global GET.
+	if(isset($_GET['id']))
+	{
+		/*Je fais une requete qui demande demande l'affichage de ma table etudiants avec une limite de ((numero de la page -1) multiplier par la variable per_page)
+		et de la variable per_page
+		*/										//numeroid=(2-1),8
+		$req="SELECT *FROM cars limit ".(($_GET['id']-1)*$per_page).",$per_page";
+        $rst=$idconnexion->query($req);
+        $tableau=$rst->fetchALL(PDO::FETCH_OBJ);
+            foreach ($tableau as $keys => $values) {
+                echo"<tr>";
+                echo"<td>".$values->name."</td>";
+                echo"<td><img src='".$values->pic."' style='width:110px;'></td>";
+                echo"<td>".$values->info."</td>";
+               // echo"<td>".$values->stock."</td>"; 
+                echo"</tr>"; 
+            }
+	}
+	//par defaut la page d'accueil aura le numero 1 de mon bouton de pagination
+	else
+	{
+		//$_GET['id']=1;
+		$req1="SELECT *FROM cars limit 1,3";
+        $tableau=$rst1->fetchALL(PDO::FETCH_OBJ);
+            foreach ($tableau as $keys => $values) {
+                echo"<tr>";
+                echo"<td>".$values->name."</td>";
+                echo"<td><img src='".$values->pic."' style='width:110px;'></td>";
+                echo"<td>".$values->info."</td>";
+               // echo"<td>".$values->stock."</td>"; 
+                echo"</tr>"; 
+            }
+                //j'inclut la 
+	}
+        ?>
+        </table>
+        <div style="margin-left:45%;margin-top:5%;">
+	<?php
+	// j'utilise une boucle for pour generer automatiquement le nombre de button de pagination en fonction du nombre d'element total et du nombre d'affichage par page.
+	echo'<div style="display:flex;" id="pagination">';
+		for($i=1;$i<=$button_paging;$i++)
+		{
+			
+			echo'<div>';
+			echo"<a href='?page=accueil&id=".$i."'>".$i."</a>";
+			echo'</div>';
+
+		}
+		echo'</div>';
+	?>
+</div>
+    </center>
+</div>
