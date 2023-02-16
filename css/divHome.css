@@ -1,0 +1,44 @@
+
+#marque div{
+        padding-bottom: 15px;
+}
+    
+#row ,.col-md-3{
+    padding-top: 15px;
+            
+}
+
+#conteneur{
+   /* max-width:100%;*/
+    height:inherit;
+    width:inherit;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3,345px);
+    grid-gap: 30px;
+    overflow-y:auto;
+}
+.col-md-9{
+    overflow-y: auto;
+}
+
+.divGride{
+    height: 234px;
+    box-shadow: 17px 17px 17px rgb(165, 36, 36);
+    border-radius: 15px;
+   background-color: transparent;
+    
+}
+
+.divGride>div{
+    text-align: center;
+    height: auto;
+    background-color:silver;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.grid section{
+    height: 210px;
+    background-size: cover;
+    background-color: transparent;
+}

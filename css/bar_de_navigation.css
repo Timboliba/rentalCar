@@ -1,0 +1,36 @@
+li{
+    padding-bottom:10px;
+    list-style-type: none;
+    margin:0px;
+    padding-right:15px;
+}
+ul  button{
+    background-color:teal;
+    
+
+}
+
+ul{
+    position:absolute;
+    display: none;
+    z-index: 15;
+    color: teal;
+    background-color:rgba(177, 5, 5, 0.848);
+    border-radius:15px 15px 15px 15px;
+    text-align: justify;
+}
+
+li:hover {
+    background-color:silver;
+    color:red;
+}
+
+#ul{
+    
+    width:auto;
+    height:auto;
+    
+}
+label{
+    width:auto;
+}

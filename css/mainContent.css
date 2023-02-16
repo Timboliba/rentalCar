@@ -1,0 +1,16 @@
+.grille{
+    display: grid;
+    grid-template-columns:repeat(3,265px);
+    grid-gap: 3%;
+    padding-top: 8vh;
+   
+}
+.grille div{
+    height: 150px;
+    background-image: url(images/BMW/BMW-X1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+article{
+    background-color: silver;
+}

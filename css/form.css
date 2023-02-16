@@ -1,0 +1,54 @@
+.input input{
+    padding-top:5px;
+    border:none;
+    outline:none;
+    border-bottom:2px solid black;
+    margin-left:15px;
+    width: 350px;
+    
+}
+@media  screen and (max-width:1080px) and (min-width:100px){
+
+    .input input{
+    padding-top:0px;
+    border:none;
+    outline:none;
+    border-bottom:2px solid black;
+    margin-left:15px;
+    width: 100px;
+    background-color:teal;
+    
+   
+    }
+    form{
+        height: 450px;
+    }
+    
+    .container_apropos{
+        padding-top: 25px;
+    }
+}
+form{
+    width: 50%;
+    height:390px;
+    border:1px solid black;
+    margin-top:150px;
+    border-radius:19px 0px;
+    box-shadow:7px 7px 9px 1px black;
+    font-size:20px;
+}
+
+input:active{
+    /*border:none;*/
+    border-left:none;
+    border-right:none;
+    border-top:none;
+}
+td{
+    padding-top:25px;
+}
+
+input:focus{
+    border-color:gold;
+}
+

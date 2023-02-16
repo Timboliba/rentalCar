@@ -1,0 +1,41 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    height:753px;
+}
+.navbar-collapse div{
+    margin-bottom: 25px;
+    width: max-content;
+    height: max-content;
+}
+
+.navbar-collapse{
+    margin-top: 25px;
+    text-align: center;
+    padding-left: 30px;
+}
+.navbar-collapse a{
+    text-decoration: none;
+    color: black;
+}
+
+.col-md-2{
+    border-bottom: 1px solid silver;
+  
+}
+
+
+
+.container-fluid{
+    background-color:rgba(16, 15, 15, 0.973);
+    color:white;
+    height: inherit;
+    overflow: auto;
+}
+a{
+    text-decoration: none;
+}
+
+.col-md-4{
+    height: inherit;
+}
